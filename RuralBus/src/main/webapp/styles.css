@@ -40,6 +40,11 @@ header.logo {
  	gap: 1rem;
  	position: relative;
  }
+ 
+ header .logo img {
+    height: 50px; /* Ajuste o tamanho da logo */
+    width: auto; /* Mantém a proporção da logo */
+}
 header .logo h1 a {
     color: #fff;
     text-decoration: none;
