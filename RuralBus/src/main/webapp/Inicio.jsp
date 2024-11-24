@@ -24,7 +24,12 @@
                 </ul>
             </nav>
             <div class="auth">
-                <button>Login</button>
+                <button id="loginButton">Login</button>
+                <script>
+    		document.getElementById('loginButton').addEventListener('click', function () {
+        	window.location.href = 'login.jsp'; // Redireciona para a página de login
+    			});
+				</script>
                 <select>
                     <option value="pt">PT</option>
                     <option value="en">EN</option>
@@ -60,10 +65,6 @@
             <label for="return-date">Data de Volta (Opcional):</label>
             <input type="date" id="return-date" name="return-date">
 
-            <!-- Campo de número de passageiros -->
-            <label for="passengers">Passageiros:</label>
-            <input type="number" id="passengers" name="passengers" min="1" value="1">
-
             <!-- Botão de busca -->
             <button type="submit">Buscar Passagens</button>
         </form>
@@ -86,21 +87,21 @@
             </div>
             <div class="list">
     		<div class="result-item">
-        		<h4>Empresa A</h4>
-        			<p>08:00 - 12:00</p> <!-- Horário de saída e chegada em linha -->
-        			<p>4h</p>           <!-- Duração sem rótulo -->
-        			<p>R$ 120,00</p>    <!-- Preço sem rótulo -->
-        		<button>Selecionar</button>
-    		</div>
-    		<div class="result-item">
-        		<h4>Empresa B</h4>
-        			<p>14:00 - 18:00</p> <!-- Horário de saída e chegada em linha -->
-        			<p>4h</p>           <!-- Duração sem rótulo -->
-        			<p>R$ 150,00</p>    <!-- Preço sem rótulo -->
-        	<button>Selecionar</button>
+    			<h4>Empresa A</h4>
+    			<p>08:00 - 12:00</p>
+    			<p>4h</p>
+    			<p>R$ 120,00</p>
+    			<form action="checkout.jsp" method="get">
+        <!-- Enviando informações da passagem -->
+        		<input type="hidden" name="empresa" value="Empresa A">
+        		<input type="hidden" name="horario" value="08:00 - 12:00">
+        		<input type="hidden" name="preco" value="120">
+        		<button type="submit">Selecionar</button>
+    </form>
+</div>
+
     </div>
 </div>
-                </div>
         
     </section>
 
