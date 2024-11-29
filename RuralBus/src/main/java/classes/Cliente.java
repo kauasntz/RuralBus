@@ -44,7 +44,7 @@ public class Cliente {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) { // Apenas mantenha este método.
         this.id = id;
     }
 
