@@ -71,4 +71,32 @@ public class ClienteDAO {
             return false;
         }
     }
+
+    // Método para buscar um cliente pelo ID
+    public Cliente getClienteById(long id) {
+        Cliente cliente = null;
+        String SQL = "SELECT * FROM cliente WHERE id = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement(SQL)) {
+    
+            ps.setLong(1, id);  // Passando o id do cliente para a consulta
+    
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Preenchendo o objeto Cliente com os dados da consulta
+                cliente = new Cliente();
+                cliente.setId(rs.getLong("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setSenha(rs.getString("senha"));
+                cliente.setCPF(rs.getString("CPF"));
+            }
+    
+            rs.close();
+        } catch (SQLException ex) {
+            System.err.println("Erro ao recuperar cliente: " + ex.getMessage());
+        }
+        return cliente;  // Retorna o cliente encontrado ou null se não houver
+    }
+    
 }
