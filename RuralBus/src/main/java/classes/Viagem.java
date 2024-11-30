@@ -10,6 +10,10 @@ public class Viagem {
     Passagem passagem;
     Veiculo veiculo;
 
+    public Viagem(){
+        
+    }
+
     public Viagem(String partida, String destino, Date data_partida, Date data_chegada, Passagem passagem, Veiculo veiculo) {
         this.partida = partida;
         this.destino = destino;

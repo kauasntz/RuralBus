@@ -5,6 +5,10 @@ public class Veiculo {
     int capacidade;
     Assento[] assentos;
 
+    public Veiculo(){
+
+    }
+
     public Veiculo(String placa, int capacidade, Assento[] assentos) {
         this.placa = placa;
         this.capacidade = capacidade;
